@@ -4,10 +4,21 @@
   "pk": 1,
   "fields": {
     "title": "Grazyna",
-    "description": "edfgewhywerhr",
+    "description": "edfge�whywerhr",
     "available": true,
     "publication_year": 2020,
     "author": "sdhgsdhjswj"
+  }
+},
+{
+  "model": "books.book",
+  "pk": 2,
+  "fields": {
+    "title": "�mud",
+    "description": "as��d",
+    "available": false,
+    "publication_year": 1823,
+    "author": "Adam Mick��iewicz"
   }
 }
 ]
