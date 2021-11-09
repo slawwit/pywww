@@ -1,0 +1,13 @@
+[
+{
+  "model": "books.book",
+  "pk": 1,
+  "fields": {
+    "title": "Grazyna",
+    "description": "edfgewhywerhr",
+    "available": true,
+    "publication_year": 2020,
+    "author": "sdhgsdhjswj"
+  }
+}
+]

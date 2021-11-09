@@ -1,0 +1,38 @@
+[
+{
+  "model": "posts.post",
+  "pk": 1,
+  "fields": {
+    "title": "Biblioteka",
+    "content": "Fajny framework.",
+    "published": false,
+    "created": "2021-11-04T11:16:14.868Z",
+    "modified": "2021-11-08T21:38:49.938Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "title": "fef",
+    "content": "fefe",
+    "published": false,
+    "created": "2021-11-08T11:59:39.524Z",
+    "modified": "2021-11-08T11:59:39.524Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "title": "do kodu",
+    "content": "infor",
+    "published": true,
+    "created": "2021-11-08T12:51:00.349Z",
+    "modified": "2021-11-09T08:16:55.104Z",
+    "sponsored": true
+  }
+}
+]
