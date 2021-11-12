@@ -6,13 +6,15 @@
 </head>
 <body>
 <h1>Lista postów</h1>
-{% for post in posts_list %}
-    {% if post.sponsored %}
-        <li>{{ post }} (sponsorowany)</li>
-    {% else %}
-        <li>{{ post }}</li>
-    {% endif %}
-{% endfor %}
-
+<ul>
+    {% for post in posts_list %}
+        <li>
+            {{ post }}
+            {% if post.sponsored %}
+                (sponsorowany)
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
 </body>
 </html>

@@ -6,15 +6,13 @@
 </head>
 <body>
 
-
-{% if one_post %}
-
-    <h2>{{ one_post.title }}</h2>
+{% if post %}
+    <h2>{{  post.title }}</h2>
     <div>
-        <small>Utworzono: {{ one_post.created }}, zmodyfikowano {{ one_post.modified }}</small>
+        <small>Utworzono: {{  post.created }}, zmodyfikowano {{  post.modified }}</small>
     </div>
     <div>
-        <p>{{ one_post.content }}</p>
+        <p>{{ post.content }}</p>
     </div>
 {#    <ul>#}
 {#    {% for post in one_post %}#}

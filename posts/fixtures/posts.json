@@ -34,5 +34,101 @@
     "modified": "2021-11-09T08:16:55.104Z",
     "sponsored": true
   }
+},
+{
+  "model": "posts.post",
+  "pk": 6,
+  "fields": {
+    "title": "Biblotekaa",
+    "content": "hahah",
+    "published": true,
+    "created": "2021-11-09T08:03:52.769Z",
+    "modified": "2021-11-09T08:03:52.769Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 7,
+  "fields": {
+    "title": "Apka main juz dziala",
+    "content": "yes :)",
+    "published": false,
+    "created": "2021-11-09T08:04:27.790Z",
+    "modified": "2021-11-09T08:04:27.790Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 8,
+  "fields": {
+    "title": "Flask wymiata",
+    "content": "do nauczenia :)",
+    "published": true,
+    "created": "2021-11-09T08:04:50.589Z",
+    "modified": "2021-11-09T08:04:50.589Z",
+    "sponsored": true
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 9,
+  "fields": {
+    "title": "dsaa",
+    "content": "dfss",
+    "published": false,
+    "created": "2021-11-10T12:59:20.919Z",
+    "modified": "2021-11-10T12:59:20.919Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 10,
+  "fields": {
+    "title": "dsaa",
+    "content": "dfss",
+    "published": false,
+    "created": "2021-11-10T13:03:25.429Z",
+    "modified": "2021-11-10T13:03:25.429Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 11,
+  "fields": {
+    "title": "dsaa",
+    "content": "dfss",
+    "published": false,
+    "created": "2021-11-10T13:03:48.607Z",
+    "modified": "2021-11-10T13:03:48.607Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 12,
+  "fields": {
+    "title": "sdsddsff",
+    "content": "",
+    "published": false,
+    "created": "2021-11-11T19:14:56.436Z",
+    "modified": "2021-11-11T19:14:56.436Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 13,
+  "fields": {
+    "title": "slawkdkdkddk",
+    "content": "szqw;kjfcksalj cx jhsdkjfkjlasgkvjndrbldfbsdnbsf",
+    "published": true,
+    "created": "2021-11-11T19:21:35.027Z",
+    "modified": "2021-11-11T19:21:35.027Z",
+    "sponsored": true
+  }
 }
 ]
