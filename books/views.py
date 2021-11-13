@@ -19,4 +19,4 @@ def books_details(request):
 def books_list(request):
     books = Book.objects.all()
     context = {"books_list": books}
-    return render(request, "books/list_books.html", context)
+    return render(request, "books/list_books1.html", context)
