@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def hello_word(request):
-    return HttpResponse('Moja aplikacja')
+    return render(request, 'main/hello_world.html')
 
 
 def about(request):

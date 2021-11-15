@@ -4,7 +4,7 @@ from .models import Book
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ['title', "author", "available"]
+    list_display = ["id", "title", "author", "available"]
     search_fields = ["title", "author", "description"]
     list_filter = ["available"]
 
