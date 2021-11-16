@@ -1,5 +1,9 @@
 
 {% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link href="{% static 'posts/css/style.css' %}" rel="stylesheet">
+{% endblock %}
 {% block content %}
     {% if post %}
         <h2>{{  post.title }}</h2>
