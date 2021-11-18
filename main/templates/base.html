@@ -11,33 +11,55 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-<div class="container">
+
     <header>
-        <h1>Biblioteka</h1>
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="{% url 'main:hello_world' %}">Strona główna</a>
-            </li>
-            <li>
-                <a href="{% url 'posts:list' %}">Lista postów</a>
-            </li>
-        </ul>
-    </nav>
-    <img src="{% static "main/img/Database1.png"%}" alt="logo">
-    {% block content %}
-    {% endblock %}
-    <footer>
-        <nav>
-            <ul>
-                <li>
-                    <a href="{% url 'main:about' %}">O nas</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-dark bg-info navbar-expand-lg">
+            <a class="navbar-brand" href="{% url 'main:hello_world' %}">
+                <img src="{% static "main/img/Database1.png"%}" width="40" height="40"
+                     class="d-inline-block mr-1 aling-bottom" alt="">Biblioteka</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"
+                    aria-controls="mainmenu" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'main:hello_world' %}">Strona główna</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link actice" href="{% url 'posts:list' %}">Lista postów</a>
+                    </li>
+                </ul>
+            </div>
+            <form  class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col">
+                    <input class="form-control" type="text" placeholder="login"  aria-label="login">
+                </div>
+                <div class="col">
+                    <input class="form-control" type="password" placeholder="hasło"  aria-label="haslo">
+                </div>
+                <div class="col">
+                     <button class="btn btn-secondary" type="submit">Zaloguj</button>
+                </div>>
+            </form>
         </nav>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</div>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            <footer>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'main:about' %}">O nas</a>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        </div>
+    </main>
 </body>
 </html>

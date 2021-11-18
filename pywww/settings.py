@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'import_export',
     'main.apps.MainConfig',
     'books.apps.BooksConfig',
     'posts.apps.PostsConfig',
