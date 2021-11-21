@@ -1,29 +1,29 @@
-{% extends "books/base.html" %}
+{% extends "base.html" %}
 {% block title %}Lista książek{% endblock %}
 {% block content %}
-<h2>Lista książek</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Tytuł</th>
-        <th>Autor</th>
-        <th>Rok wydania</th>
-        <th>Status</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for book in books_list %}
+    <h2>Lista książek</h2>
+    <table>
+        <thead>
         <tr>
-            <td>{{ book.title }}</td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.publication_year }}</td>
-            {% if book.available %}
-                <td>na półce</td>
-            {% else %}
-                <td>wyporzyczona</td>
-            {% endif %}
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Rok wydania</th>
+            <th>Status</th>
         </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        {% for book in books_list %}
+            <tr>
+                <td><a href="{% url 'books:details' book.id %}">{{ book.title }}</a></td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.publication_year }}</td>
+                {% if book.available %}
+                    <td>na półce</td>
+                {% else %}
+                    <td>wypożyczona</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

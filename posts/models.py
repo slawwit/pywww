@@ -20,7 +20,7 @@ class Timestamped(models.Model, CheckAgeMixin):
         abstract = True
 
 
-class Post(models.Model, CheckAgeMixin):
+class Post(Timestamped):
     title = models.CharField(max_length=255)
     content = models.TextField()
     published = models.BooleanField(default=False)

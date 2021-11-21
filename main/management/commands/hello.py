@@ -10,7 +10,7 @@ class Command(BaseCommand):
         if name:
             self.stdout.write(f'Hello {name}')
         else:
-            self.stdout.write("Hello Worls!")
+            self.stdout.write("Hello Worlds!")
 
     def add_arguments(self, parser):
         parser.add_argument('args', nargs="*", default="")

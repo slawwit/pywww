@@ -11,13 +11,12 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-
     <header>
         <nav class="navbar navbar-dark bg-info navbar-expand-lg">
             <a class="navbar-brand" href="{% url 'main:hello_world' %}">
                 <img src="{% static "main/img/Database1.png"%}" width="40" height="40"
                      class="d-inline-block mr-1 aling-bottom" alt="">Biblioteka</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"
+            <button class="navbar-toggler order-first"  type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu"
                     aria-controls="mainmenu" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,6 +28,8 @@
                     </li>
                     <li class="nav-item">
                          <a class="nav-link actice" href="{% url 'posts:list' %}">Lista postów</a>
+                    </li><li class="nav-item">
+                         <a class="nav-link actice" href="{% url 'books:list' %}">Lista Książek</a>
                     </li>
                 </ul>
             </div>

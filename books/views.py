@@ -10,8 +10,8 @@ def show_library(request):
 #     return render(request, 'books/list_books.html', {'pos': pos, 'pos2': list})
 
 
-def books_details(request):
-    book = Book.objects.first()
+def books_details(request, books_id):
+    book = Book.objects.get(pk=books_id)
     context = {"book": book}
     return render(request, "books/books_details.html", context)
 
