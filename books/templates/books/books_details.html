@@ -3,9 +3,20 @@
 {% block styles %}
 
 {% endblock %}
-{% block title %}Książka{% endblock %}
+{% block title %}{{ book.title }}{% endblock %}
 {% block content %}
-    <title>Książka</title>
     <h1>{{ book.title }}</h1>
-    <h3s>{{ book.description }}</h3s>
+    <div>
+        {%  if book.available %}
+            <div class="alert alert-success" role="alert">Dostępna</div>
+        {% else %}
+            <div class="alert alert-danger" role="alert">Wypożyczona</div>
+        {% endif %}
+    </div>
+    <div>Autor: {{ book.author }}</div>
+    <div>Rok wydania: {{ book.publication_year }}</div>
+    <div>Opis:</div>
+    <div>
+        {{ book.description }}
+    </div>
 {% endblock %}
