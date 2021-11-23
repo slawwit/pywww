@@ -13,7 +13,10 @@
             <div class="alert alert-danger" role="alert">Wypożyczona</div>
         {% endif %}
     </div>
-    <div>Autor: {{ book.author }}</div>
+    <div>Autor: {% for author in book.authors.all %}
+                    {{ author.name }},
+                {% endfor %}
+    </div>
     <div>Rok wydania: {{ book.publication_year }}</div>
     <div>Opis:</div>
     <div>

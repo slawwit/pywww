@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Lista książek{% endblock %}
 {% block content %}
     <div class="row">
@@ -16,12 +17,15 @@
                     <tr>
                         <td><a href="{% url 'books:details' book.id %}">{{ book.title }}</a></td>
                         <td>
-                            {% if book.available == True %}Dostępna{% else %}wypożyczona{% endif %}
+                            {% if book.available == True %}Dostępna{% else %}Wypożyczona{% endif %}
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static "books/img/pexels-pixabay-415078.jpg" %}" alt="books image" width="100%">
         </div>
     </div>
 {% endblock %}

@@ -13,10 +13,10 @@ def show_library(request):
 def books_details(request, books_id):
     book = Book.objects.get(pk=books_id)
     context = {"book": book}
-    return render(request, "books/books_details.html", context)
+    return render(request, "books/details.html", context)
 
 
 def books_list(request):
     books = Book.objects.all()
     context = {"books_list": books}
-    return render(request, "books/list_books1.html", context)
+    return render(request, "books/list.html", context)
