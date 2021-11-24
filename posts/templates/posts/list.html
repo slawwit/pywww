@@ -5,14 +5,19 @@
 <link href="{% static 'posts/css/style.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-<h1>Lista postów</h1>
-<ul>
-    {% for post in posts_list %}
-        <li><a href="{% url 'posts:details' post.id %}">{{ post.title }}</a>
-            {% if post.sponsored %}
-                (sponsorowany)
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
+<div class="row">
+    <form>
+        <input type="text" id="q" name="qr">
+        <input type="submit" value="search">
+    </form>
+    <h1>Lista postów</h1>
+    <ul>
+        {% for post in posts_list %}
+
+            <li><a href="{% url 'posts:details' post.id %}">{{ post.title }}</a>
+                {% if post.sponsored %}(sponsorowany){% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

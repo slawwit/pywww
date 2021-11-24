@@ -5,21 +5,23 @@
     <link href="{% static 'posts/css/style.css' %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
-    {% if post %}
-        <h2>{{  post.title }}</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <h1>{{  post.title }}</h1>
+            <div>
+                <p>{{ post.content }}</p>
+            </div>
+            {% if post.example_file %}
+                <div>
+                    Pobierz <a href="{{ post.example_file.url }}" width="100%">przykład</a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md-3">
+            <img src="{{ post.image.url }}">
+        </div>
         <div>
             <small>Utworzono: {{  post.created }}, zmodyfikowano {{  post.modified }}</small>
         </div>
-        <div>
-            <p>{{ post.content }}</p>
-        </div>
-    {#    <ul>#}
-    {#    {% for post in one_post %}#}
-    {##}
-    {#        <li><a href="/posts/{{ post.id }}/">{{ post.title }}</a></li>#}
-    {#    {% endfor %}#}
-    {#    </ul>#}
-    {% else %}
-        <p>Chyba nie ma nic</p>
-    {% endif %}
+    </div>
 {% endblock %}

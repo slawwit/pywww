@@ -15,7 +15,7 @@
                 <tbody>
                 {% for book in books_list %}
                     <tr>
-                        <td><a href="{% url 'books:details' book.id %}">{{ book.title }}</a></td>
+                        <td><a class="nav-link" href="{% url 'books:details' book.id %}">{{ book.title }}</a></td>
                         <td>
                             {% if book.available == True %}Dostępna{% else %}Wypożyczona{% endif %}
                         </td>
