@@ -18,8 +18,7 @@ from django.conf.global_settings import AUTH_USER_MODEL
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/  'django-insecure-y-=&y4k=^@bwz8q%0sn#l7@f9fi^4qy3%f4%akdehp=!vg_j77'
-
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', )
 
