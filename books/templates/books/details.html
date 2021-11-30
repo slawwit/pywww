@@ -12,7 +12,11 @@
         {% else %}
             <div class="alert alert-danger" role="alert">Wypożyczona</div>
         {% endif %}
-    </div>
+        {% if book.cover %}
+        <div>
+            <img src="{{ book.cover.url }}" width="150" class="img-thumbnail" alt="">
+        </div>
+        {% endif %}
     <div>Autor: {% for author in book.authors.all %}
                     {{ author.name }},
                 {% endfor %}
@@ -21,5 +25,6 @@
     <div>Opis:</div>
     <div>
         {{ book.description }}
+    </div>
     </div>
 {% endblock %}

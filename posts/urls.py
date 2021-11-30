@@ -6,5 +6,7 @@ urlpatterns = [
     # path('<post_id>', posts_details),
     path('add', add_post, name="add"),
     path('<int:post_id>', posts_details, name="details"),
+    path('<int:post_id>/edit', edit_post, name='edit'),
     path('', posts_list, name="list"),
+
 ]

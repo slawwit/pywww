@@ -9,7 +9,7 @@ from .forms import PostForm
 def edit_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
     else:
@@ -19,7 +19,7 @@ def edit_post(request, post_id):
 
 def add_post(request):
     if request.method == "POST" and request.user.is_authenticated:
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user

@@ -19,6 +19,8 @@ class Book(Timestamped):
     publication_year = models.IntegerField()
     tags = models.ManyToManyField("tags.Tag", related_name="books")
     authors = models.ManyToManyField(Author, related_name="books")
+    cover_width = models.IntegerField(blank=True, null=True, editable=False)
+    cover = models.ImageField(upload_to='books/covers/%Y/%m/%d', null=True, width_field='cover_width')
 
     def __str__(self):
         return f"{self.id}{self.title} available: {self.available}"

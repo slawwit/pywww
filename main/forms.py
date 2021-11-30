@@ -30,7 +30,7 @@ class ContactForm(forms.Form):
             Fieldset(
                 'Dodatkowe',
                 HTML("Zaznacz jeśli chcesz by wysłać kopię wiadomości do Ciebie"),
-                'sent_to-me'
+                'send_to_me'
             ),
             ButtonHolder(
                 Submit('submit', 'Wyślij', css_class='btn btn-primary'),
