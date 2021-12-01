@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import BookForm
+from .forms import BookForm, BookBorrowForm
 from django.http import HttpResponseRedirect
 from .models import Book, Borrow
 from django.urls import reverse
@@ -15,9 +15,11 @@ def show_library(request):
 #     return render(request, 'books/list_books.html', {'pos': pos, 'pos2': list})
 
 
-def books_details(request, books_id):
-    book = Book.objects.get(pk=books_id)
-    context = {"book": book}
+def books_details(request, book_id):
+    book = Book.objects.get(pk=book_id)
+    form = BookBorrowForm()
+    form.helper.form_action = reverse("books:borrows", args=[book.id])
+    context = {"book": book, "form": form}
     return render(request, "books/details.html", context)
 
 
@@ -27,8 +29,8 @@ def books_list(request):
     return render(request, "books/list.html", context)
 
 
-def edit_book(request, books_id):
-    book = get_object_or_404(Book, pk=books_id)
+def edit_book(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES, instance=book)
         if form.is_valid():
@@ -63,5 +65,19 @@ def handle_book_borrows(request, book_id):
                 )
                 book.available = False
                 book.save()
-
-    return HttpResponseRedirect(reverse("books:details", args=[book_id]))
+                return HttpResponseRedirect(reverse("books:details", args=[book_id]))
+            else:
+                keys = [key for key in request.POST.keys() if key.startswith("book_")]
+                print(keys)
+                key = int(keys[0].split("_")[1])
+                book = Book.objects.get(pk=key)
+                borrow = Borrow.objects.filter(user=user, book=book).last()
+                if not borrow.return_date:
+                    borrow.return_date = timezone.now()
+                    borrow.save()
+                    book.available = True
+                    book.save()
+                return HttpResponseRedirect(reverse("books:borrows_list"))
+    else:
+        borrows = Borrow.objects.filter(user=user)
+        return render(request, "books/borrows_list.html", {"borrows": borrows})

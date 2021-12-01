@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block styles %}
 
 {% endblock %}
@@ -24,6 +25,9 @@
             <div>
                 {{ book.description }}
             </div>
+            {% if book.available %}
+                {%  crispy form %}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

@@ -21,3 +21,4 @@ class BookAdmin(ImportExportModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     pass
 # admin.site.register(Book)
+
