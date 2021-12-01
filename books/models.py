@@ -17,10 +17,16 @@ class Book(Timestamped):
     description = models.TextField()
     available = models.BooleanField(default=False)
     publication_year = models.IntegerField()
-    tags = models.ManyToManyField("tags.Tag", related_name="books")
+    tags = models.ManyToManyField("tags.Tag", related_name="books", blank=True)
     authors = models.ManyToManyField(Author, related_name="books")
-    cover_width = models.IntegerField(blank=True, null=True, editable=False)
-    cover = models.ImageField(upload_to='books/covers/%Y/%m/%d', null=True, width_field='cover_width')
+    cover = models.ImageField(upload_to='books/covers/%Y/%m/%d', null=True, blank=True)
 
     def __str__(self):
         return f"{self.id}{self.title} available: {self.available}"
+
+
+class Borrow(models.Model):
+    book = models.ForeignKey("Book", on_delete=models.CASCADE, related_name="borrows")
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name="borrows")
+    borrow_date = models.DateTimeField(auto_now_add=True)
+    return_date = models.DateTimeField(null=True, blank=True)

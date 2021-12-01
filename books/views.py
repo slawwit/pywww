@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import BookForm
 from django.http import HttpResponseRedirect
-from .models import Book
+from .models import Book, Borrow
 from django.urls import reverse
+from django.utils import timezone
 
 
 def show_library(request):
@@ -38,6 +39,7 @@ def edit_book(request, books_id):
 
 
 def add_book(request):
+    form = BookForm()
     if request.method == "POST" and request.user.is_authenticated:
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
@@ -48,3 +50,18 @@ def add_book(request):
         form = BookForm()
     return render(request, 'books/add.html', {'form': form})
 
+
+def handle_book_borrows(request, book_id):
+    user = request.user
+    if request.method == 'POST':
+        if user.is_authenticated:
+            if request.POST.get('borrow'):
+                book = Book.objects.get(pk=book_id)
+                Borrow.objects.create(
+                    user=user,
+                    book=book
+                )
+                book.available = False
+                book.save()
+
+    return HttpResponseRedirect(reverse("books:details", args=[book_id]))

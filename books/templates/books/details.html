@@ -6,25 +6,24 @@
 {% block title %}{{ book.title }}{% endblock %}
 {% block content %}
     <h1>{{ book.title }}</h1>
-    <div>
-        {%  if book.available %}
-            <div class="alert alert-success" role="alert">Dostępna</div>
-        {% else %}
-            <div class="alert alert-danger" role="alert">Wypożyczona</div>
-        {% endif %}
-        {% if book.cover %}
-        <div>
-            <img src="{{ book.cover.url }}" width="150" class="img-thumbnail" alt="">
+    <div class="row">
+        <div class="col-md-6 text-center">{% if book.cover %}<img src="{{ book.cover.url }}" width="150"
+                                                                  class="img-thumbnail" alt="">{% endif %}</div>
+        <div class="col-md-6">
+            <div>
+                {%  if book.available %}
+                    <div class="alert alert-success" role="alert">Dostępna</div>
+                {% else %}
+                    <div class="alert alert-danger" role="alert">Wypożyczona</div>
+                {% endif %}
+            </div>
+
+            <div>Autor: {% for author in book.authors.all %}{{ author.name }} {% endfor %}</div>
+            <div>Rok wydania: {{ book.publication_year }}</div>
+            <div>Opis:</div>
+            <div>
+                {{ book.description }}
+            </div>
         </div>
-        {% endif %}
-    <div>Autor: {% for author in book.authors.all %}
-                    {{ author.name }},
-                {% endfor %}
-    </div>
-    <div>Rok wydania: {{ book.publication_year }}</div>
-    <div>Opis:</div>
-    <div>
-        {{ book.description }}
-    </div>
     </div>
 {% endblock %}
