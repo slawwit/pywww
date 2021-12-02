@@ -11,9 +11,11 @@ class BookResource(resources.ModelResource):
 
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin):
+    exclude = ['authors']
     list_display = ["id", "title", "available"]
     search_fields = ["title", "description"]
     list_filter = ["available"]
+    autocomplete_fields = ['tags']
     resource_class = BookResource
 
 

@@ -48,12 +48,11 @@ def add_book(request):
             instance = form.save(commit=False)
             instance.save()
             return HttpResponseRedirect(reverse("books:add"))
-    else:
-        form = BookForm()
+
     return render(request, 'books/add.html', {'form': form})
 
 
-def handle_book_borrows(request, book_id):
+def handle_book_borrows(request, book_id=None):
     user = request.user
     if request.method == 'POST':
         if user.is_authenticated:
