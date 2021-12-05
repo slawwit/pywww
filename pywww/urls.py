@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include("books.urls")),
     path('posts/', include('posts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('', include("main.urls")),
-    path('tags/', include('tags.urls'))
-    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
-              static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('tags/', include('tags.urls')),
+    path('', include('register.urls')),
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

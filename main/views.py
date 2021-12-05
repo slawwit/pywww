@@ -5,7 +5,7 @@ from .forms import ContactForm, UserProfileForm
 from . import services
 
 
-def hello_word(request):
+def home(request):
     return render(request, 'main/hello_world.html')
 
 
