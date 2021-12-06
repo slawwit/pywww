@@ -24,6 +24,7 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('tags/', include('tags.urls')),
+    path('galleries/', include('galleries.urls')),
     path('', include("main.urls")),
     path('', include('register.urls')),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

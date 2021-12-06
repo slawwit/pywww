@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'tags.apps.TagsConfig',
     'register.apps.RegisterConfig',
+    'galleries.apps.GalleriesConfig',
 ]
 
 MIDDLEWARE = [

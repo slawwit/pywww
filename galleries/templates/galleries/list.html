@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Lista Galerii{% endblock %}
+
+{% block content %}
+    {% for gallery in galleries %}
+        {{ gallery.title }}
+    {% endfor %}
+
+    <h1>Wiiiii</h1>
+{% endblock %}

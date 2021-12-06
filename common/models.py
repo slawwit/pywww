@@ -14,3 +14,4 @@ class Timestamped(models.Model, CheckAgeMixin):
 
     class Meta:
         abstract = True
+
