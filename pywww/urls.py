@@ -23,8 +23,8 @@ urlpatterns = [
     path('books/', include("books.urls")),
     path('posts/', include('posts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', include("main.urls")),
     path('tags/', include('tags.urls')),
+    path('', include("main.urls")),
     path('', include('register.urls')),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
