@@ -1,8 +1,9 @@
 import string
 from random import random
-from django.db import models
-from common.models import Timestamped
 from django.utils.text import slugify
+from django.db import models
+from common.models import Timestamped, SlugMixin
+
 
 STATUS_CHOICES = [
         ('hide', 'hide'),
@@ -11,32 +12,13 @@ STATUS_CHOICES = [
     ]
 
 
-def get_random_text(n):
-    letters = string.ascii_letters
-    return ''.join(random.choice(letters) for i in range(n))
-
-
-class Gallery(Timestamped):
+class Gallery(Timestamped, SlugMixin):
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
     description = models.TextField(null=True, blank=True)
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default="new")
 
     def __str__(self):
         return self.title
-
-    def save(self, *args, **kwargs):
-        if self._state.adding and not self.slug:
-            slug = slugify(self.title)
-            slugs = self.__class__.objects.values_list('slug', flat=True)
-            if slugs:
-                while True:
-                    if slug in slugs:
-                        slug += get_random_text(5)
-                    else:
-                        break
-            self.slug = slug
-        return super().save(*args, **kwargs)
 
 
 def uploud_to(instance, filename):
