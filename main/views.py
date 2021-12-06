@@ -6,7 +6,7 @@ from . import services
 
 
 def home(request):
-    return render(request, 'main/hello_world.html')
+    return render(request, 'main/index.html')
 
 
 def about(request):

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}Home{% endblock %}
+{% block styles %}
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <h1> Witaj !</h1>
+    {% thumbnail "main/img/wid.jpg" "324x216" as im %}
+        <img src="{{ im.url }}">
+    {% endthumbnail %}
+{% endblock %}

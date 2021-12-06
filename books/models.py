@@ -1,5 +1,6 @@
 from django.db import models
 from common.models import Timestamped
+from sorl.thumbnail import ImageField
 
 
 class Author(Timestamped):
@@ -19,7 +20,7 @@ class Book(Timestamped):
     publication_year = models.IntegerField()
     tags = models.ManyToManyField("tags.Tag", related_name="books", blank=True)
     authors = models.ManyToManyField(Author, related_name="books")
-    cover = models.ImageField(upload_to='books/covers/%Y/%m/%d', null=True, blank=True)
+    cover = ImageField(upload_to='books/covers/%Y/%m/%d', null=True, blank=True)
 
     def __str__(self):
         return f"{self.id}{self.title} available: {self.available}"
