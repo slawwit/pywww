@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Lista Galerii{% endblock %}
 
 {% block content %}
-    {% for gallery in galleries %}
-        {{ gallery.title }}
-    {% endfor %}
+    <ul>
+        {% for gallery in galleries %}
+            {% if gallery.photos.all %}
+            <li><a href="{% url 'galleries:details' gallery.id %}">{{ gallery.title }}</a></li>
+            {% endif %}
 
+        {% endfor %}
+    </ul>
     <h1>Wiiiii</h1>
 {% endblock %}

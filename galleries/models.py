@@ -18,7 +18,7 @@ class Gallery(Timestamped, SlugMixin):
     status = models.CharField(max_length=15, choices=STATUS_CHOICES, default="new")
 
     def __str__(self):
-        return self.title
+        return f"{self.id} {self.title}"
 
 
 def uploud_to(instance, filename):
